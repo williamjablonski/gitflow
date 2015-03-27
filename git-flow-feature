@@ -351,7 +351,7 @@ helper_finish_cleanup() {
 
 	# delete branch
 	if flag fetch; then
-		git_do push "$ORIGIN" ":refs/heads/$BRANCH"
+		git_do push "$ORIGIN" "HEAD:refs/for/$BRANCH"
 	fi
 	
 	
@@ -387,7 +387,7 @@ cmd_publish() {
 	require_branch_absent "$ORIGIN/$BRANCH"
 
 	# create remote branch
-	git_do push "$ORIGIN" "$BRANCH:refs/heads/$BRANCH"
+	git_do push "$ORIGIN" "$BRANCH:refs/for/$BRANCH"
 	git_do fetch -q "$ORIGIN"
 
 	# configure remote tracking
