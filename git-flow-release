@@ -328,7 +328,7 @@ cmd_publish() {
 	require_branch_absent "$ORIGIN/$BRANCH"
 
 	# create remote branch
-	git_do push "$ORIGIN" "$BRANCH:refs/heads/$BRANCH"
+	git_do push "$ORIGIN" "$BRANCH:refs/for/$BRANCH"
 	git_do fetch -q "$ORIGIN"
 
 	# configure remote tracking
